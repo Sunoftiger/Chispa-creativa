@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chispa Creativa — Consultora de tecnología e IA sobre pantallas LED</title>
+<meta name="description" content="El único integrador full-stack de pantallas inteligentes en Argentina. Pantallas LED + IA + automatización + drones + agentes 24/7. Una iniciativa Juanseled & Dinalight.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fondo:#ffffff;
+  --fondo-2:#faf8f4;        /* crema suave para tarjetas */
+  --linea:#e7e2d8;
+  --texto:#171a1e;
+  --texto-2:#5c6470;
+  --chispa:#e88a00;         /* ámbar chispa sobre blanco */
+  --chispa-oscuro:#c67500;
+  --chispa-suave:#fff3df;
+  --cian:#0e7fae;
+  --verde:#1e9e5a;
+  --radio:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--fondo);color:var(--texto);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+::selection{background:var(--chispa);color:#fff}
+
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--linea)}
+.logo{font-family:'Archivo',sans-serif;font-weight:900;font-stretch:110%;font-size:1.05rem;letter-spacing:.02em;text-decoration:none;color:var(--texto)}
+.logo span{color:var(--chispa)}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{color:var(--texto-2);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--chispa-oscuro)}
+.nav-cta{background:var(--chispa);color:#fff!important;padding:8px 16px;border-radius:8px;font-weight:600!important}
+.nav-cta:hover{background:var(--chispa-oscuro)}
+@media(max-width:720px){.nav-links a:not(.nav-cta){display:none}}
+
+/* ---------- HERO LED ---------- */
+.hero{position:relative;padding:64px 24px 72px;text-align:center;border-bottom:1px solid var(--linea);
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(232,138,0,.06), transparent 70%),
+    var(--fondo)}
+.led-wrap{max-width:960px;margin:0 auto 28px;border:1px solid #1c2026;border-radius:var(--radio);
+  background:#07080a;padding:18px;box-shadow:0 18px 50px rgba(23,26,30,.18)}
+.led-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#4a525d;letter-spacing:.08em}
+.led-bar .on{color:#43d17c}
+canvas#led{width:100%;height:auto;display:block;image-rendering:pixelated;border-radius:6px}
+.hero h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tagline{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(1.15rem,3vw,1.6rem);max-width:720px;margin:0 auto 10px}
+.tagline em{font-style:normal;color:var(--chispa-oscuro)}
+.sub{color:var(--texto-2);max-width:640px;margin:0 auto 30px;font-size:.98rem}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .15s, background .2s, border-color .2s}
+.btn:active{transform:scale(.97)}
+.btn-p{background:var(--chispa);color:#fff}
+.btn-p:hover{background:var(--chispa-oscuro)}
+.btn-s{border:1px solid var(--linea);color:var(--texto)}
+.btn-s:hover{border-color:var(--chispa);color:var(--chispa-oscuro)}
+.stack-line{margin-top:34px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#9aa3af;letter-spacing:.12em;text-transform:uppercase}
+.stack-line b{color:var(--texto-2);font-weight:600}
+
+/* ---------- SECCIONES ---------- */
+section{padding:76px 24px;border-bottom:1px solid var(--linea)}
+.wrap{max-width:1060px;margin:0 auto}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--chispa-oscuro);margin-bottom:14px}
+h2{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:105%;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.15;margin-bottom:16px;max-width:680px}
+.lead{color:var(--texto-2);max-width:640px;font-size:1.02rem;margin-bottom:8px}
+
+/* módulos */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:40px}
+.card{background:var(--fondo-2);border:1px solid var(--linea);border-radius:var(--radio);padding:26px 24px;transition:border-color .2s, transform .2s, box-shadow .2s}
+.card:hover{border-color:var(--chispa);transform:translateY(-3px);box-shadow:0 10px 30px rgba(232,138,0,.1)}
+.card .ic{width:42px;height:42px;border-radius:10px;background:var(--chispa-suave);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.card .ic svg{width:22px;height:22px;stroke:var(--chispa-oscuro);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:8px}
+.card p{color:var(--texto-2);font-size:.9rem}
+
+/* modelo */
+.pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:40px;border:1px solid var(--linea);border-radius:var(--radio);overflow:hidden;background:#fff}
+.paso{padding:28px 24px;border-right:1px solid var(--linea)}
+.paso:last-child{border-right:none}
+@media(max-width:960px){.paso{border-right:none;border-bottom:1px solid var(--linea)}.paso:last-child{border-bottom:none}}
+.paso .n{font-family:'JetBrains Mono',monospace;color:var(--chispa-oscuro);font-size:.75rem;font-weight:600;letter-spacing:.1em;margin-bottom:10px}
+.paso h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:8px}
+.paso p{color:var(--texto-2);font-size:.88rem}
+.paso.destacado{background:var(--chispa-suave)}
+.paso.destacado .n::after{content:" — SOCIO DEL RESULTADO";color:#b09468}
+
+/* estructura dual */
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+@media(max-width:760px){.dual{grid-template-columns:1fr}}
+.mitad{background:var(--fondo-2);border:1px solid var(--linea);border-radius:var(--radio);padding:30px 28px}
+.mitad .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.12em;padding:5px 10px;border-radius:6px;margin-bottom:16px}
+.mitad.hdt .tag{background:var(--chispa-suave);color:var(--chispa-oscuro)}
+.mitad.dnl .tag{background:#e6f4fa;color:var(--cian)}
+.mitad h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.35rem;margin-bottom:12px}
+.mitad p{color:var(--texto-2);font-size:.92rem}
+
+/* diferencial */
+.score{display:flex;flex-wrap:wrap;gap:10px;margin:36px 0 28px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.78rem;border:1px solid var(--linea);border-radius:8px;padding:9px 14px;color:var(--texto-2);background:#fff}
+.chip b{color:var(--texto);font-weight:600}
+.chip.win{border-color:var(--chispa);background:var(--chispa-suave)}
+.chip.win b{color:var(--chispa-oscuro)}
+.veredicto{border-left:3px solid var(--chispa);padding:6px 0 6px 20px;font-family:'Archivo',sans-serif;font-weight:600;font-size:1.15rem;max-width:620px}
+.veredicto small{display:block;font-family:'Inter',sans-serif;font-weight:400;color:var(--texto-2);font-size:.85rem;margin-top:6px}
+
+/* contacto */
+.contacto{text-align:center;border-bottom:none;background:var(--fondo-2)}
+.contacto .btn-p{margin-top:24px}
+.contacto .datos{margin-top:26px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--texto-2)}
+.contacto .datos a{color:var(--chispa-oscuro);text-decoration:none}
+
+footer{padding:28px 24px;text-align:center;font-size:.78rem;color:#9aa3af;font-family:'JetBrains Mono',monospace;border-top:1px solid var(--linea)}
+footer span{color:var(--chispa)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#top">CHISPA<span>■</span>CREATIVA</a>
+  <div class="nav-links">
+    <a href="#modulos">Módulos</a>
+    <a href="#modelo">Modelo</a>
+    <a href="#quienes">Quiénes</a>
+    <a href="#diferencial">Diferencial</a>
+    <a class="nav-cta" href="#contacto">Hablemos</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <h1>Chispa Creativa — Consultora creativa de tecnología e inteligencia artificial</h1>
+  <div class="led-wrap">
+    <div class="led-bar">
+      <span>PANEL P2.5 · 96×24 PX</span>
+      <span class="on">● SEÑAL ACTIVA</span>
+      <span>DINALIGHT · AR</span>
+    </div>
+    <canvas id="led" width="960" height="240" aria-hidden="true"></canvas>
+  </div>
+  <p class="tagline">Construimos el negocio <em>que todavía no existe.</em></p>
+  <p class="sub">Consultora creativa de tecnología e IA: identificamos oportunidades de negocio digital, proponemos soluciones concretas y las ejecutamos. Solas o combinadas, según lo que tu público necesita.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-p" href="#contacto">Contame tu necesidad</a>
+    <a class="btn btn-s" href="#modulos">Ver los 6 módulos</a>
+  </div>
+  <p class="stack-line"><b>Pantallas LED</b> · Software · <b>IA</b> · Automatización · <b>Drones</b> · Robótica · Creatividad</p>
+</header>
+
+<section id="modulos">
+  <div class="wrap">
+    <p class="eyebrow">Qué desarrollamos</p>
+    <h2>Seis módulos. Un solo proveedor. Una pantalla que trabaja para vos.</h2>
+    <p class="lead">El objetivo: potenciar las pantallas LED con tecnología e inteligencia artificial. Digitalizar la comunicación, gestionar ofertas en tiempo real y superar las expectativas de tu cliente.</p>
+    <div class="grid">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h.01M20 17v.01M20 20v.01"/></svg></div>
+        <h3>Interacción con el público</h3><p>Juegos, ruletas y trivias activadas por QR desde el celular. La pantalla reacciona en tiempo real, genera un momento memorable y captura datos de contacto.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></div>
+        <h3>Ofertas dinámicas con IA</h3><p>El encargado carga el precio desde su celular y la IA genera la pieza gráfica automáticamente. En pantalla en segundos, sin diseñador.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Seguridad y monitoreo</h3><p>Control de accesos, cámaras, lectoras y scanners integrados en un panel centralizado con alertas automáticas en tiempo real.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div>
+        <h3>Automatización de procesos</h3><p>Turnos, check-in, encuestas y registros de visitas. Todo lo repetitivo que hoy hace una persona, lo hace el software.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="5" cy="5" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7 7l3.5 3.5M17 7l-3.5 3.5M7 17l3.5-3.5M17 17l-3.5-3.5"/><rect x="10" y="10" width="4" height="4"/></svg></div>
+        <h3>Drones y robótica</h3><p>Inspección de instalaciones, relevamiento aéreo y automatización de tareas complejas o de riesgo con drones y robots Android.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="3"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M12 3v3M8 21h8"/></svg></div>
+        <h3>Agente de IA 24/7</h3><p>Asistente virtual en pantalla táctil, WhatsApp o web. Entrenado con tu catálogo para responder y recomendar en tiempo real, las 24 horas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="modelo">
+  <div class="wrap">
+    <p class="eyebrow">Modelo de trabajo</p>
+    <h2>Socio del resultado, no proveedor.</h2>
+    <div class="pasos">
+      <div class="paso"><p class="n">01</p><h3>Identifico</h3><p>Buscamos activamente empresas con necesidades digitales sin resolver. No esperamos que lleguen: salimos a buscarlas.</p></div>
+      <div class="paso"><p class="n">02</p><h3>Propongo</h3><p>Una carilla. Un resultado esperado con número concreto. Lenguaje de negocio, sin tecnicismos.</p></div>
+      <div class="paso"><p class="n">03</p><h3>Ejecuto</h3><p>Todo el software desarrollado en casa. Si el proyecto requiere hardware o ingeniería, se activa el equipo de Dinalight. Se entrega funcionando.</p></div>
+      <div class="paso destacado"><p class="n">04</p><h3>Participo</h3><p>Cobramos un porcentaje del resultado mensual generado. Si el proyecto le suma valor al cliente, todos ganan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="quienes">
+  <div class="wrap">
+    <p class="eyebrow">Cómo está estructurado</p>
+    <h2>Software y hardware bajo el mismo techo.</h2>
+    <div class="dual">
+      <div class="mitad hdt">
+        <span class="tag">SOFTWARE · IA · CREATIVIDAD</span>
+        <h3>Hijo de Tigre</h3>
+        <p>Todo el desarrollo: automatización, inteligencia artificial, drones, robótica Android, aplicaciones web, agentes de IA, scanners y lectoras. Identifica la oportunidad, propone la solución y la ejecuta. Un único punto de contacto.</p>
+      </div>
+      <div class="mitad dnl">
+        <span class="tag">HARDWARE · INGENIERÍA · PROCESOS</span>
+        <h3>Dinalight</h3>
+        <p>Pantallas LED, instalaciones, cableado, infraestructura física, ingeniería, auditoría y control de procesos. Más de 20 años de experiencia técnica y comercial respaldan cada proyecto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="diferencial">
+  <div class="wrap">
+    <p class="eyebrow">Análisis competitivo · Argentina 2026</p>
+    <h2>Nadie más integra los seis módulos.</h2>
+    <p class="lead">El mercado está fragmentado en silos: los de pantallas no hacen IA conversacional, los de IA no tocan hardware, los de seguridad no hacen marketing.</p>
+    <div class="score">
+      <span class="chip">IQLab <b>1.5/6</b></span>
+      <span class="chip">Admira <b>3/6</b></span>
+      <span class="chip">DAIA <b>2/6</b></span>
+      <span class="chip">Aivo <b>1.5/6</b></span>
+      <span class="chip">WAIA <b>2.5/6</b></span>
+      <span class="chip">Synetech <b>1/6</b></span>
+      <span class="chip">InvGate <b>2.5/6</b></span>
+      <span class="chip win">Chispa Creativa <b>6/6</b></span>
+    </div>
+    <div class="veredicto">
+      El único integrador full-stack de pantallas inteligentes en Argentina.
+      <small>No competimos contra un proveedor: competimos contra que tengas que contratar cinco distintos.</small>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto">
+  <div class="wrap">
+    <p class="eyebrow">Empecemos</p>
+    <h2 style="margin-inline:auto">Contanos qué necesita tu público.<br>Nosotros armamos la solución.</h2>
+    <a class="btn btn-p" href="https://wa.me/5491100000000?text=Hola%2C%20quiero%20conocer%20Chispa%20Creativa" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+    <p class="datos">
+      <a href="mailto:info@dinalight.com.ar">info@dinalight.com.ar</a> · Buenos Aires, Argentina
+    </p>
+  </div>
+</section>
+
+<footer>
+  CHISPA CREATIVA <span>■</span> UNA INICIATIVA JUANSELED & DINALIGHT · ARGENTINA 2026
+</footer>
+
+<script>
+/* ---- LED dot-matrix hero (la pantalla queda oscura: es una pantalla real) ---- */
+(function(){
+  const cv = document.getElementById('led'), ctx = cv.getContext('2d');
+  const COLS = 96, ROWS = 24, CELL = 10;
+  cv.width = COLS*CELL; cv.height = ROWS*CELL;
+
+  const F = {
+    'C':["01110","10001","10000","10000","10000","10001","01110"],
+    'H':["10001","10001","10001","11111","10001","10001","10001"],
+    'I':["11111","00100","00100","00100","00100","00100","11111"],
+    'S':["01111","10000","10000","01110","00001","00001","11110"],
+    'P':["11110","10001","10001","11110","10000","10000","10000"],
+    'A':["01110","10001","10001","11111","10001","10001","10001"],
+    'R':["11110","10001","10001","11110","10100","10010","10001"],
+    'E':["11111","10000","10000","11110","10000","10000","11111"],
+    'T':["11111","00100","00100","00100","00100","00100","00100"],
+    'V':["10001","10001","10001","10001","10001","01010","00100"],
+    'L':["10000","10000","10000","10000","10000","10000","11111"],
+    'D':["11110","10001","10001","10001","10001","10001","11110"],
+    ' ':["00000","00000","00000","00000","00000","00000","00000"],
+    '■':["11111","11111","11111","11111","11111","11111","11111"]
+  };
+  const MSGS = ["CHISPA CREATIVA","IA ■ LED ■ CREATIVA","CHISPA CREATIVA"];
+  let msgIdx = 0, scrollX = COLS, t = 0;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function textCols(msg){
+    const cols = [];
+    for(const ch of msg){
+      const g = F[ch] || F[' '];
+      for(let x=0;x<5;x++){ let col=0; for(let y=0;y<7;y++) if(g[y][x]==='1') col|=(1<<y); cols.push(col); }
+      cols.push(0);
+    }
+    return cols;
+  }
+
+  function draw(){
+    t++;
+    ctx.fillStyle = '#07080a'; ctx.fillRect(0,0,cv.width,cv.height);
+    const cols = textCols(MSGS[msgIdx]);
+    const yOff = Math.floor((ROWS-14)/2);
+
+    for(let cx=0; cx<COLS; cx++){
+      for(let cy=0; cy<ROWS; cy++){
+        let on = false;
+        const srcCol = Math.floor((cx - scrollX)/2);
+        const srcRow = Math.floor((cy - yOff)/2);
+        if(srcCol>=0 && srcCol<cols.length && srcRow>=0 && srcRow<7){
+          on = !!(cols[srcCol] & (1<<srcRow));
+        }
+        const shim = !on && ((cx*7+cy*13+((t/8)|0))%97===0);
+        const px = cx*CELL+CELL/2, py = cy*CELL+CELL/2;
+        ctx.beginPath();
+        ctx.arc(px,py,CELL*0.32,0,7);
+        if(on){
+          ctx.fillStyle = '#ffb02e';
+          ctx.shadowColor = '#ffb02e'; ctx.shadowBlur = 8;
+        } else if(shim){
+          ctx.fillStyle = 'rgba(55,200,255,.35)'; ctx.shadowBlur = 0;
+        } else {
+          ctx.fillStyle = '#15181d'; ctx.shadowBlur = 0;
+        }
+        ctx.fill(); ctx.shadowBlur = 0;
+      }
+    }
+
+    if(!reduced){
+      if(t%2===0) scrollX -= 1;
+      const total = cols.length*2;
+      if(scrollX < -total){ scrollX = COLS; msgIdx = (msgIdx+1)%MSGS.length; }
+      requestAnimationFrame(draw);
+    }
+  }
+
+  if(reduced){ scrollX = Math.floor((COLS - textCols(MSGS[0]).length*2)/2); }
+  draw();
+})();
+</script>
+</body>
+</html>
