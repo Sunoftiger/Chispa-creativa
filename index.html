@@ -417,5 +417,35 @@ footer span{color:var(--chispa)}
   draw();
 })();
 </script>
+
+<script>
+/* ---- Protección básica (disuasión) ---- */
+(function(){
+  // Bloquear click derecho
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  // Bloquear teclas de inspección: F12, Ctrl+U, Ctrl+S, Ctrl+Shift+I/J/C
+  document.addEventListener('keydown', e => {
+    if (e.key === 'F12' ||
+       (e.ctrlKey && ['u','U','s','S'].includes(e.key)) ||
+       (e.ctrlKey && e.shiftKey && ['i','I','j','J','c','C'].includes(e.key))) {
+      e.preventDefault(); return false;
+    }
+  });
+  // Bloquear arrastre de imágenes y selección en imágenes/canvas
+  document.addEventListener('dragstart', e => { if(e.target.tagName==='IMG'||e.target.tagName==='CANVAS') e.preventDefault(); });
+  // Aviso en consola
+  console.log('%cCHISPA CREATIVA', 'color:#e88a00;font-size:28px;font-weight:bold');
+  console.log('%cContenido protegido. © Juanseled & Dinalight 2026. Todos los derechos reservados.', 'color:#5c6470;font-size:13px');
+  // Detección de DevTools abierto (disuasión suave)
+  let advertido = false;
+  setInterval(() => {
+    const gap = (window.outerWidth - window.innerWidth > 200) || (window.outerHeight - window.innerHeight > 200);
+    if (gap && !advertido){ advertido = true; console.clear(); console.log('%c⚠ Este sitio y su contenido están protegidos por derechos de autor.', 'color:#c00;font-size:16px'); }
+  }, 2000);
+})();
+</script>
+<style>
+  img, canvas { -webkit-user-select:none; user-select:none; -webkit-user-drag:none; pointer-events:auto; }
+</style>
 </body>
 </html>
