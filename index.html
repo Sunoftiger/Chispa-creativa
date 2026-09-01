@@ -119,6 +119,16 @@ h2{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:105%;font-size:
 footer{padding:28px 24px;text-align:center;font-size:.78rem;color:#9aa3af;font-family:'JetBrains Mono',monospace;border-top:1px solid var(--linea)}
 footer span{color:var(--chispa)}
 
+/* centralita */
+.centralita{background:var(--chispa-suave)}
+.cent-banda{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;background:var(--chispa);color:#fff;padding:5px 12px;border-radius:6px;margin-bottom:14px}
+.cent-cta{margin-top:34px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.cent-cta .nota{font-size:.85rem;color:var(--texto-2);font-family:'JetBrains Mono',monospace}
+/* botón flotante WhatsApp */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:99;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .15s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -128,6 +138,7 @@ footer span{color:var(--chispa)}
   <a class="logo" href="#top">CHISPA<span>■</span>CREATIVA</a>
   <div class="nav-links">
     <a href="#modulos">Módulos</a>
+    <a href="#centralita">Centralita</a>
     <a href="#industrias">Rubros</a>
     <a href="#proyectos">Proyectos</a>
     <a href="#modelo">Modelo</a>
@@ -149,7 +160,7 @@ footer span{color:var(--chispa)}
   <p class="tagline">Construimos el negocio <em>que todavía no existe.</em></p>
   <p class="sub">Consultora creativa de tecnología e IA: identificamos oportunidades de negocio digital, proponemos soluciones concretas y las ejecutamos. Solas o combinadas, según lo que tu público necesita.</p>
   <div class="hero-ctas">
-    <a class="btn btn-p" href="#contacto">Contame tu necesidad</a>
+    <a class="btn btn-p" href="https://wa.me/5491136142191?text=Hola%2C%20quiero%20conocer%20Chispa%20Creativa" target="_blank" rel="noopener">Contame tu necesidad</a>
     <a class="btn btn-s" href="#modulos">Ver los 6 módulos</a>
   </div>
   <p class="stack-line"><b>Pantallas LED</b> · Software · <b>IA</b> · Automatización · <b>Drones</b> · Robótica · Creatividad</p>
@@ -173,6 +184,27 @@ footer span{color:var(--chispa)}
         <h3>Resolvé lo que hoy es imposible</h3><p>Inspección de instalaciones, relevamiento aéreo y automatización de tareas complejas o de riesgo con drones y robots Android.</p></div>
       <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="3"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M12 3v3M8 21h8"/></svg></div>
         <h3>Atendé sin dormir</h3><p>Asistente virtual en pantalla táctil, WhatsApp o web. Entrenado con tu catálogo para responder y recomendar en tiempo real, las 24 horas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="centralita" class="centralita">
+  <div class="wrap">
+    <span class="cent-banda">PRODUCTO DE ENTRADA · ACTIVACIÓN EN SEMANAS</span>
+    <p class="eyebrow">Centralita WhatsApp con IA</p>
+    <h2>Un solo número para llamar y escribir.<br>Cero clientes perdidos.</h2>
+    <p class="lead">Todas tus líneas de WhatsApp y tu teléfono en una sola bandeja, con inteligencia artificial que atiende, clasifica y avisa. En pesos, con soporte argentino. El sistema que usamos en Dinalight, ahora para tu negocio.</p>
+    <div class="grid">
+      <div class="card"><h3>Todo en un lugar</h3><p>Todas tus líneas de WhatsApp centralizadas. Cada cliente identificado una sola vez, aunque escriba a varios números. Sin cruces entre vendedores.</p></div>
+      <div class="card"><h3>IA que atiende 24/7</h3><p>Responde consultas de catálogo, precios y estado de pedido a cualquier hora. Lo que toca plata o decisiones, lo deriva a un humano con todo el contexto.</p></div>
+      <div class="card"><h3>Ningún mensaje sin responder</h3><p>Alertas automáticas de consultas sin contestar. La IA detecta leads calientes, oportunidades de venta cruzada y hasta competidores preguntando de incógnito.</p></div>
+      <div class="card"><h3>Tu fijo también escribe</h3><p>WhatsApp API se registra sobre tu número fijo: el mismo número atiende llamadas y chats. Un solo número público para todo tu negocio.</p></div>
+      <div class="card"><h3>Inteligencia comercial</h3><p>Quién pregunta, qué producto, desde dónde, qué objeciones. Cada conversación alimenta un tablero que te dice dónde está la plata.</p></div>
+      <div class="card"><h3>En pesos, sin sorpresas</h3><p>Abono mensual en pesos con soporte humano rioplatense. Sin contratos en dólares ni tickets en inglés. Lo activamos en semanas, no meses.</p></div>
+    </div>
+    <div class="cent-cta">
+      <a class="btn btn-p" href="https://wa.me/5491136142191?text=Hola%2C%20quiero%20la%20Centralita%20WhatsApp%20para%20mi%20negocio" target="_blank" rel="noopener">Quiero la Centralita</a>
+      <span class="nota">DEMO SIN CARGO · PROBALA CON TU PROPIO NÚMERO</span>
     </div>
   </div>
 </section>
@@ -315,6 +347,10 @@ footer span{color:var(--chispa)}
         <summary style="font-family:'Archivo',sans-serif;font-weight:700;cursor:pointer">¿Quién opera el sistema después?</summary>
         <p style="color:var(--texto-2);font-size:.92rem;margin-top:10px">Tu equipo, desde el celular. Todo se diseña para que lo use un encargado sin conocimientos técnicos: cargar un precio, ver un reporte, responder un cliente. Nosotros damos soporte continuo.</p>
       </details>
+      <details style="border:1px solid var(--linea);border-radius:12px;padding:18px 22px;margin-bottom:12px;background:var(--fondo-2)">
+        <summary style="font-family:'Archivo',sans-serif;font-weight:700;cursor:pointer">¿La Centralita funciona con mi número de siempre?</summary>
+        <p style="color:var(--texto-2);font-size:.92rem;margin-top:10px">Sí. WhatsApp Business API se puede registrar sobre tu número actual, incluso un fijo: la verificación se hace por llamada de voz y el número sigue atendiendo llamadas normalmente. Un solo número público para llamar y escribir.</p>
+      </details>
       <details style="border:1px solid var(--linea);border-radius:12px;padding:18px 22px;background:var(--fondo-2)">
         <summary style="font-family:'Archivo',sans-serif;font-weight:700;cursor:pointer">¿Los datos de mis clientes de quién son?</summary>
         <p style="color:var(--texto-2);font-size:.92rem;margin-top:10px">Tuyos. Cada contacto capturado por juegos, agentes o formularios queda en tu base. Nosotros construimos la herramienta; el activo comercial es del cliente.</p>
@@ -337,6 +373,10 @@ footer span{color:var(--chispa)}
 <footer>
   CHISPA CREATIVA <span>■</span> UNA INICIATIVA JUANSELED & DINALIGHT · ARGENTINA 2026
 </footer>
+
+<a class="wa-float" href="https://wa.me/5491136142191?text=Hola%2C%20quiero%20conocer%20Chispa%20Creativa" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.7.9 3.7 1.5 5.8 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-4.9.9.9-4.7-.2-.4c-1-1.6-1.5-3.4-1.5-5.2 0-5.4 4.4-9.8 9.8-9.8s9.8 4.4 9.8 9.8-4.4 10-9.8 10zm5.4-7.3c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1c-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1s0-.4.1-.6c.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5s0-.4 0-.5c0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
 
 <script>
 /* ---- LED dot-matrix hero (la pantalla queda oscura: es una pantalla real) ---- */
